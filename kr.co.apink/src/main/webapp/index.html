@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form id="frm">
+<ol>
+<li><input type="radio"	name="poll" value="1">JAVA 과목</li>
+<li><input type="radio"	name="poll" value="2">Spring 과목</li>
+<li><input type="radio"	name="poll" value="3">Spring-boot 과목</li>
+</ol>
+<input type="submit" value="참여하기" onclick="pollok()">
+</form>
+
+</body>
+<script>
+/*
+var aaa = function(){}
+var aaa = () => {}
+
+var aaa = function(aa,bb){}
+var aaa = (aa,bb) => {}
+
+
+
+ () => 화살표 함수 
+ abc() => {} //에러
+ () => {} 즉시실행
+ 
+ 
+ var aaa = {
+		 name : "aaa",
+		 ajax : function(){
+			 console.log("test");
+		 }
+ }
+ 
+ var aaa = {
+		 name : "aaa",
+		 ajax : () => {
+			 console.log("test");
+		 }
+ }
+
+*/
+
+var pollok = () => {
+	let ea = frm.poll.length;
+	let ck = false;
+	for(var a = 0 ; a < ea; a++ ){
+		if(frm.poll[a].checked == true){
+			ck = true;
+		}
+		
+	}
+	frm.method = "post";
+	frm.action="./pollok.do"
+	frm.submit();		
+}
+
+</script>
+</html>
