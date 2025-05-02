@@ -45,14 +45,15 @@ public class main_controller {
 		try {
 			con = this.sd.dbinfo2(); //db2 사용하기로 함
 			//mybatis 지금 안 깔아서 이렇게 된듯?
-			String sql = "insert into movie_res values(0,?,?,?,?,?,?,now())";
+			String sql = "insert into movie_res values(0,?,?,?,?,?,?,?,now())";
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, this.md.getMname());
-			ps.setInt(2, this.md.getMoviecode());
-			ps.setString(3, this.md.getMovienm());
-			ps.setString(4, this.md.getMdate());
-			ps.setString(5, this.md.getMtime());
-			ps.setInt(6, this.md.getMperson());
+			ps.setInt(1, this.md.getUsercode());
+			ps.setString(2, this.md.getMname());
+			ps.setInt(3, this.md.getMoviecode());
+			ps.setString(4, this.md.getMovienm());
+			ps.setString(5, this.md.getMdate());
+			ps.setString(6, this.md.getMtime());
+			ps.setInt(7, this.md.getMperson());
 						
 			int result = ps.executeUpdate();
 			
@@ -61,10 +62,11 @@ public class main_controller {
 				String seat_no[] = seat_data.split(",");
 				int w = 0;
 				while (w < seat_no.length) {
-					String sql2 = "insert into movie_seat values(0,?,?,now())";
+					String sql2 = "insert into movie_seat values(0,?,?,?,now())";
 					PreparedStatement ps2 = con.prepareStatement(sql2);
-					ps2.setInt(1, this.md.getMoviecode());
-					ps2.setInt(2, Integer.parseInt( seat_no[w])) ;
+					ps2.setInt(1, this.md.getUsercode());
+					ps2.setInt(2, this.md.getMoviecode());
+					ps2.setInt(3, Integer.parseInt(seat_no[w])) ;
 					ps2.executeUpdate();
 					w++;
 				}

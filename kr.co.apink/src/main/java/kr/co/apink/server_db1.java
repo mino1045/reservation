@@ -36,7 +36,9 @@ public class server_db1 {
 	//cloud db
 	public  Connection dbinfo2() throws Exception{
 		this.dbinfo = "com.mysql.cj.jdbc.Driver";
-		this.dburl = "jdbc:mysql://172.30.1.90:13306/webapi";
+		//this.dburl = "jdbc:mysql://172.30.1.90:13306/webapi";
+		this.dburl = "jdbc:mysql://localhost:13306/webapi";
+
 		this.dbuser = "root";
 		this.dbpass = "a12345";
 		

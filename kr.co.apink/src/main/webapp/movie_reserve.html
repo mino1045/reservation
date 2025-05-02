@@ -10,8 +10,10 @@
 
     <form id="frm" action="./movie_reservok.do" method="post" onsubmit="reserve()">
         <h1>영화 예약 시스템</h1>
+        <!--영화고유코드  -->
         <input type="hidden" name="moviecode" value="402">
-
+        <!--예매고객의 고유 코드 js난수로 생성  -->
+		<input type="hidden" name="usercode" value="">
         <label for="movie">영화명:</label>
         <input type="text" id="movienm" name="movienm" value="거룩한 밤:데몬헌터스" readonly>
         <br><br>
@@ -42,5 +44,5 @@
 const person =" ${person}"; //백엔드 코드 js는 직접 못 받으니 model로 받기
 </script>
 </body>
-<script src="./movie_reserve.js"></script>
+<script src="./movie_reserve.js?v=1"></script>
 </html>
